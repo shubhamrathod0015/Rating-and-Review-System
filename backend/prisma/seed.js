@@ -1,76 +1,83 @@
-import { prisma } from '../config/database.js';
+import { prisma } from "../config/database.js";
 
 const usersData = [
-  { name: 'John Doe', email: 'john.doe@example.com' },
-  { name: 'Jane Smith', email: 'jane.smith@example.com' },
-  { name: 'Mike Johnson', email: 'mike.johnson@example.com' },
-  { name: 'Sarah Wilson', email: 'sarah.wilson@example.com' },
+  { name: "John Doe", email: "john.doe@example.com" },
+  { name: "Jane Smith", email: "jane.smith@example.com" },
+  { name: "Mike Johnson", email: "mike.johnson@example.com" },
+  { name: "Sarah Wilson", email: "sarah.wilson@example.com" },
 ];
 
 const productsData = [
   {
     id: 1,
-    name: 'iPhone 15 Pro',
-    description: 'Latest iPhone with A17 Pro chip and titanium design',
+    name: "iPhone 15 Pro",
+    description: "Latest iPhone with A17 Pro chip and titanium design",
     price: 999.99,
-    category: 'Electronics',
-    imageUrl: 'https://www.pexels.com/photo/modern-smartphone-on-wooden-surface-29020349/',
+    category: "Electronics",
+    imageUrl:
+      "https://www.pexels.com/photo/modern-smartphone-on-wooden-surface-29020349/",
   },
   {
     id: 2,
-    name: 'Samsung Galaxy S24',
-    description: 'Flagship Android phone with AI features',
+    name: "Samsung Galaxy S24",
+    description: "Flagship Android phone with AI features",
     price: 899.99,
-    category: 'Electronics',
-    imageUrl: 'https://www.pexels.com/photo/hands-on-samsung-galaxy-s23-ultra-5g-green-color-mention-zana_qaradaghy-on-instagram-while-use-this-photo-follow-on-instagram-zana_qaradaghy-15493878/',
+    category: "Electronics",
+    imageUrl:
+      "https://www.pexels.com/photo/hands-on-samsung-galaxy-s23-ultra-5g-green-color-mention-zana_qaradaghy-on-instagram-while-use-this-photo-follow-on-instagram-zana_qaradaghy-15493878/",
   },
   {
     id: 3,
-    name: 'MacBook Air M3',
-    description: 'Lightweight laptop with M3 chip',
+    name: "MacBook Air M3",
+    description: "Lightweight laptop with M3 chip",
     price: 1199.99,
-    category: 'Computers',
-    imageUrl: 'https://www.pexels.com/photo/macbook-air-on-brown-wooden-table-3693732/',
+    category: "Computers",
+    imageUrl:
+      "https://www.pexels.com/photo/macbook-air-on-brown-wooden-table-3693732/",
   },
   {
     id: 4,
-    name: 'Sony WH-1000XM5',
-    description: 'Premium noise-canceling headphones',
+    name: "Sony WH-1000XM5",
+    description: "Premium noise-canceling headphones",
     price: 399.99,
-    category: 'Audio',
-    imageUrl: 'https://www.pexels.com/photo/person-holding-a-camera-2953179/',
+    category: "Audio",
+    imageUrl: "https://www.pexels.com/photo/person-holding-a-camera-2953179/",
   },
   {
     id: 5,
     name: 'iPad Pro 12.9"',
-    description: 'Professional tablet with M2 chip',
+    description: "Professional tablet with M2 chip",
     price: 1099.99,
-    category: 'Tablets',
-    imageUrl: 'https://www.pexels.com/photo/an-ipad-a-pen-and-a-pencil-on-a-green-table-16738220/',
+    category: "Tablets",
+    imageUrl:
+      "https://www.pexels.com/photo/an-ipad-a-pen-and-a-pencil-on-a-green-table-16738220/",
   },
   {
     id: 6,
-    name: 'Dell XPS 13',
-    description: 'Ultra-portable Windows laptop',
+    name: "Dell XPS 13",
+    description: "Ultra-portable Windows laptop",
     price: 999.99,
-    category: 'Computers',
-    imageUrl: 'https://www.pexels.com/photo/product-shoot-of-sennheiser-hd-201-16688486/',
+    category: "Computers",
+    imageUrl:
+      "https://www.pexels.com/photo/product-shoot-of-sennheiser-hd-201-16688486/",
   },
   {
     id: 7,
-    name: 'AirPods Pro 2',
-    description: 'Wireless earbuds with active noise cancellation',
+    name: "AirPods Pro 2",
+    description: "Wireless earbuds with active noise cancellation",
     price: 249.99,
-    category: 'Audio',
-    imageUrl: 'https://www.pexels.com/photo/airpods-pro-beside-a-laptop-6857193/',
+    category: "Audio",
+    imageUrl:
+      "https://www.pexels.com/photo/airpods-pro-beside-a-laptop-6857193/",
   },
   {
     id: 8,
-    name: 'Nintendo Switch OLED',
-    description: 'Gaming console with OLED screen',
+    name: "Nintendo Switch OLED",
+    description: "Gaming console with OLED screen",
     price: 349.99,
-    category: 'Gaming',
-    imageUrl: 'https://www.pexels.com/photo/back-of-nintendo-switch-on-marble-surface-4523030/',
+    category: "Gaming",
+    imageUrl:
+      "https://www.pexels.com/photo/back-of-nintendo-switch-on-marble-surface-4523030/",
   },
 ];
 
@@ -79,62 +86,67 @@ const reviewsData = [
     productId: 1,
     userId: 1,
     rating: 5,
-    reviewText: 'Amazing phone! The camera quality is outstanding and the titanium build feels premium.',
-    tags: ['premium', 'camera', 'fast'],
-    userName: 'John Doe',
-    userEmail: 'john.doe@example.com',
+    reviewText:
+      "Amazing phone! The camera quality is outstanding and the titanium build feels premium.",
+    tags: ["premium", "camera", "fast"],
+    userName: "John Doe",
+    userEmail: "john.doe@example.com",
   },
   {
     productId: 1,
     userId: 2,
     rating: 4,
-    reviewText: 'Great phone but quite expensive. Battery life could be better.',
-    tags: ['expensive', 'battery'],
-    userName: 'Jane Smith',
-    userEmail: 'jane.smith@example.com',
+    reviewText:
+      "Great phone but quite expensive. Battery life could be better.",
+    tags: ["expensive", "battery"],
+    userName: "Jane Smith",
+    userEmail: "jane.smith@example.com",
   },
   {
     productId: 2,
     userId: 3,
     rating: 5,
-    reviewText: 'Best Android phone I\'ve ever used. The AI features are incredible!',
-    tags: ['android', 'ai', 'best'],
-    userName: 'Mike Johnson',
-    userEmail: 'mike.johnson@example.com',
+    reviewText:
+      "Best Android phone I've ever used. The AI features are incredible!",
+    tags: ["android", "ai", "best"],
+    userName: "Mike Johnson",
+    userEmail: "mike.johnson@example.com",
   },
   {
     productId: 3,
     userId: 4,
     rating: 5,
-    reviewText: 'Perfect laptop for work and travel. Light weight and amazing performance.',
-    tags: ['lightweight', 'performance', 'work'],
-    userName: 'Sarah Wilson',
-    userEmail: 'sarah.wilson@example.com',
+    reviewText:
+      "Perfect laptop for work and travel. Light weight and amazing performance.",
+    tags: ["lightweight", "performance", "work"],
+    userName: "Sarah Wilson",
+    userEmail: "sarah.wilson@example.com",
   },
   {
     productId: 4,
     userId: 1,
     rating: 4,
-    reviewText: 'Excellent noise cancellation. Great for flights and commuting.',
-    tags: ['noise-canceling', 'travel', 'commute'],
-    userName: 'John Doe',
-    userEmail: 'john.doe@example.com',
+    reviewText:
+      "Excellent noise cancellation. Great for flights and commuting.",
+    tags: ["noise-canceling", "travel", "commute"],
+    userName: "John Doe",
+    userEmail: "john.doe@example.com",
   },
 ];
 
 async function seed() {
-  console.log('Starting database seeding...');
-  
+  console.log("Starting database seeding...");
+
   try {
     // Check if seeding is needed
     const userCount = await prisma.user.count();
     if (userCount > 0) {
-      console.log('Database already seeded. Skipping...');
+      console.log("Database already seeded. Skipping...");
       return;
     }
 
     // Insert users
-    console.log('Creating users...');
+    console.log("Creating users...");
     for (const user of usersData) {
       await prisma.user.upsert({
         where: { email: user.email },
@@ -144,7 +156,7 @@ async function seed() {
     }
 
     // Insert products
-    console.log('Creating products...');
+    console.log("Creating products...");
     for (const product of productsData) {
       await prisma.product.upsert({
         where: { id: product.id },
@@ -161,7 +173,7 @@ async function seed() {
     }
 
     // Insert reviews
-    console.log('Creating reviews...');
+    console.log("Creating reviews...");
     for (const review of reviewsData) {
       await prisma.review.upsert({
         where: {
@@ -184,16 +196,17 @@ async function seed() {
     }
 
     // Update product stats
-    console.log('Updating product stats...');
+    console.log("Updating product stats...");
     for (const product of productsData) {
       const reviews = await prisma.review.findMany({
         where: { productId: product.id },
       });
 
-      const ratings = reviews.map(r => r.rating).filter(r => r !== null);
-      const avg = ratings.length > 0 
-        ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length
-        : 0;
+      const ratings = reviews.map((r) => r.rating).filter((r) => r !== null);
+      const avg =
+        ratings.length > 0
+          ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length
+          : 0;
 
       await prisma.product.update({
         where: { id: product.id },
@@ -229,9 +242,9 @@ async function seed() {
       }
     }
 
-    console.log('✅ Seed completed successfully');
+    console.log("✅ Seed completed successfully");
   } catch (error) {
-    console.error('❌ Seed failed:', error);
+    console.error("❌ Seed failed:", error);
     throw error;
   }
 }
@@ -239,8 +252,8 @@ async function seed() {
 // Execute seed only when run directly
 if (process.argv[1] === import.meta.filename) {
   seed()
-    .catch(err => {
-      console.error('Error during seeding:', err);
+    .catch((err) => {
+      console.error("Error during seeding:", err);
       process.exit(1);
     })
     .finally(async () => {

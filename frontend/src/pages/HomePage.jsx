@@ -1,8 +1,7 @@
-// src/pages/HomePage.jsx
-import React, { useState } from 'react';
-import ProductCard from '../components/product/ProductCard';
-import ProductDetails from '../components/product/ProductDetails';
-import { useProducts } from '../hooks/useProducts';
+import React, { useState } from "react";
+import ProductCard from "../components/product/ProductCard";
+import ProductDetails from "../components/product/ProductDetails";
+import { useProducts } from "../hooks/useProducts";
 
 const HomePage = () => {
   const { products, loading, error } = useProducts();
@@ -40,23 +39,23 @@ const HomePage = () => {
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map(product => (
-          <ProductCard 
+        {products.map((product) => (
+          <ProductCard
             key={product.id}
             product={product}
             onViewDetails={openDetails}
           />
         ))}
       </div>
-      
+
       {selectedProduct && (
-        <ProductDetails 
-          product={selectedProduct} 
+        <ProductDetails
+          product={selectedProduct}
           onClose={closeDetails}
           onAddReview={() => setShowReviewForm(true)}
         />
       )}
-      
+
       {/* Review form would be rendered here */}
     </div>
   );

@@ -1,12 +1,12 @@
-// src/components/product/ProductCard.jsx
 import React from "react";
 import StarRating from "../ui/StarRating";
 
 const ProductCard = ({ product, onViewDetails }) => {
-  const averageRating = typeof product.averageRating === 'string' 
-    ? parseFloat(product.averageRating) 
-    : product.averageRating;
-  
+  const averageRating =
+    typeof product.averageRating === "string"
+      ? parseFloat(product.averageRating)
+      : product.averageRating;
+
   const totalReviews = product.totalReviews || 0;
 
   return (
@@ -40,11 +40,7 @@ const ProductCard = ({ product, onViewDetails }) => {
 
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center text-sm text-gray-600 gap-1">
-            {/* <span>
-              {hasRating ? averageRating.toFixed(1) : "N/A"} (
-              {product.totalReviews})
-            </span> */}
-             <StarRating rating={averageRating} />
+            <StarRating rating={averageRating} />
             <span className="ml-2 text-sm text-gray-600">
               {averageRating.toFixed(1)} ({totalReviews})
             </span>

@@ -1,12 +1,11 @@
-// src/services/productService.js
-import api from './api';
+import api from "./api";
 
 export const getProducts = async () => {
   try {
-    const response = await api.get('/products');
+    const response = await api.get("/products");
     return response;
   } catch (error) {
-    console.error('Error fetching products:', error);
+    console.error("Error fetching products:", error);
     throw error;
   }
 };
@@ -23,11 +22,10 @@ export const getProductReviews = async (productId) => {
 
 export const createReview = async (reviewData) => {
   try {
-    const response = await api.post('/reviews', reviewData);
+    const response = await api.post("/reviews", reviewData);
     return response;
   } catch (error) {
-    console.error('Error creating review:', error);
+    console.error("Error creating review:", error);
     throw error;
   }
 };
-

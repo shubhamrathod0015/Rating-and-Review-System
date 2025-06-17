@@ -1,14 +1,13 @@
-// src/hooks/useProducts.js
-import { useState, useEffect } from 'react';
-import { getProducts, getProductReviews } from '../services/productService';
+import { useState, useEffect } from "react";
+import { getProducts, getProductReviews } from "../services/productService";
 
-// Helper to convert Prisma decimals
 const convertProduct = (product) => ({
   ...product,
-  averageRating: typeof product.averageRating === 'string' 
-    ? parseFloat(product.averageRating) 
-    : product.averageRating,
-  totalReviews: product.totalReviews || 0
+  averageRating:
+    typeof product.averageRating === "string"
+      ? parseFloat(product.averageRating)
+      : product.averageRating,
+  totalReviews: product.totalReviews || 0,
 });
 
 export const useProducts = () => {
@@ -43,7 +42,7 @@ export const useProductReviews = (productId) => {
   useEffect(() => {
     const fetchReviews = async () => {
       if (!productId) return;
-      
+
       try {
         setLoading(true);
         const data = await getProductReviews(productId);

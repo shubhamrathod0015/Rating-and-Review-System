@@ -1,21 +1,20 @@
-import express from 'express';
-
-import { setupMiddleware } from './middleware/index.middleware.js';
-import { addReview } from './controllers/review.controller.js';
-import errorHandler from './middleware/errorHandler.middleware.js';
-import productRoutes from './routes/product.routes.js';
-
+import express from "express";
+import { setupMiddleware } from "./middleware/index.middleware.js";
+import reviewRoutes from "./routes/reviews.routes.js";
+import productRoutes from "./routes/product.routes.js";
+import errorHandler from "./middleware/errorHandler.middleware.js";
 
 const app = express();
 
-// Setup middleware
 setupMiddleware(app);
 
-// Routes
-app.use('/api/reviews', addReview);
-app.use('/api/products', productRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/products", productRoutes);
 
-// Error handling middleware
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", timestamp: new Date() });
+});
+
 app.use(errorHandler);
 
 export default app;

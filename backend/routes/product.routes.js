@@ -1,12 +1,12 @@
-import express from 'express';
-import { prisma } from '../config/database.js';
+import express from "express";
+import { prisma } from "../config/database.js";
 
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const products = await prisma.product.findMany({
-      orderBy: { id: 'asc' },
+      orderBy: { id: "asc" },
     });
 
     res.json(products);
