@@ -1,0 +1,82 @@
+// Prisma schema for Ratings and Review System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  email     String   @unique @db.VarChar(255)
+  password  String?  @db.VarChar(255) // Nullable for guest users
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  reviews Review[]
+
+  @@map("users")
+}
+
+model Product {
+  id            Int     @id @default(autoincrement())
+  name          String  @db.VarChar(255)
+  description   String? @db.Text
+  price         Decimal? @db.Decimal(10, 2)
+  category      String? @db.VarChar(100)
+  imageUrl      String? @map("image_url") @db.VarChar(500)
+  averageRating Decimal @default(0) @map("average_rating") @db.Decimal(2, 1)
+  totalReviews  Int     @default(0) @map("total_reviews")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  reviews    Review[]
+  reviewTags ReviewTag[]
+
+  @@map("products")
+}
+
+model Review {
+  id           Int      @id @default(autoincrement())
+  productId    Int      @map("product_id")
+  userId       Int      @map("user_id")
+  userName     String   @map("user_name") @db.VarChar(255)
+  userEmail    String   @map("user_email") @db.VarChar(255)
+  rating       Int?     // 1-5 stars, nullable if only text review
+  reviewText   String?  @map("review_text") @db.Text
+  tags         Json?    // Array of strings
+  photos       Json?    // Array of photo objects
+  isVerified   Boolean  @default(false) @map("is_verified")
+  helpfulCount Int      @default(0) @map("helpful_count")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Constraints
+  @@unique([userId, productId], name: "unique_user_product")
+  @@map("reviews")
+}
+
+model ReviewTag {
+  id        Int      @id @default(autoincrement())
+  productId Int      @map("product_id")
+  tagName   String   @map("tag_name") @db.VarChar(100)
+  count     Int      @default(1)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  // Constraints
+  @@unique([productId, tagName], name: "unique_product_tag")
+  @@map("review_tags")
+}
