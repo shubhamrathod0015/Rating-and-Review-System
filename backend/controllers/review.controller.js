@@ -1,7 +1,7 @@
 import { prisma } from '../config/database.js';
 import { ApiError } from '../utils/ApiError.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
-import asyncHandler from '../utils/asyncHandler.js';
+import { asyncHandler } from '../utils/asyncHandler.js'; 
 
 // Add review
 const addReview = asyncHandler(async (req, res) => {

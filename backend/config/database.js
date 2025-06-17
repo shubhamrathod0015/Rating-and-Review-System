@@ -1,4 +1,4 @@
-// db/connectDB.js
+// backend/config/database.js
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -8,7 +8,7 @@ const connectDB = async () => {
     await prisma.$connect();
     console.log('Database connected successfully');
   } catch (error) {
-    console.error('Database connection failed:', error.message);
+    console.error('Database connection failed:', error);
     process.exit(1);
   }
 };

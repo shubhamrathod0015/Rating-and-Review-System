@@ -1,9 +1,8 @@
-const express = require('express');
-const { setupMiddleware } = require('./middleware');
 import express from 'express';
-import { setupMiddleware } from './middleware/index.js';
-import routes from './routes/index.js';
-import errorHandler from './middleware/errorHandler.js';
+
+import { setupMiddleware } from './middleware/index.middleware.js';
+import { addReview } from './controllers/review.controller.js';
+import errorHandler from './middleware/errorHandler.middleware.js';
 
 const app = express();
 
@@ -11,7 +10,7 @@ const app = express();
 setupMiddleware(app);
 
 // Routes
-app.use('/api/reviews', routes);
+app.use('/api/reviews', addReview);
 
 // Error handling middleware
 app.use(errorHandler);
