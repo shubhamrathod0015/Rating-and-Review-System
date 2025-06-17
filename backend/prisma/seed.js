@@ -14,7 +14,7 @@ const productsData = [
     description: 'Latest iPhone with A17 Pro chip and titanium design',
     price: 999.99,
     category: 'Electronics',
-    imageUrl: 'https://via.placeholder.com/300x300?text=iPhone+15+Pro',
+    imageUrl: 'https://www.pexels.com/photo/modern-smartphone-on-wooden-surface-29020349/',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const productsData = [
     description: 'Flagship Android phone with AI features',
     price: 899.99,
     category: 'Electronics',
-    imageUrl: 'https://via.placeholder.com/300x300?text=Galaxy+S24',
+    imageUrl: 'https://www.pexels.com/photo/hands-on-samsung-galaxy-s23-ultra-5g-green-color-mention-zana_qaradaghy-on-instagram-while-use-this-photo-follow-on-instagram-zana_qaradaghy-15493878/',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const productsData = [
     description: 'Lightweight laptop with M3 chip',
     price: 1199.99,
     category: 'Computers',
-    imageUrl: 'https://via.placeholder.com/300x300?text=MacBook+Air',
+    imageUrl: 'https://www.pexels.com/photo/macbook-air-on-brown-wooden-table-3693732/',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const productsData = [
     description: 'Premium noise-canceling headphones',
     price: 399.99,
     category: 'Audio',
-    imageUrl: 'https://via.placeholder.com/300x300?text=Sony+Headphones',
+    imageUrl: 'https://www.pexels.com/photo/person-holding-a-camera-2953179/',
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const productsData = [
     description: 'Professional tablet with M2 chip',
     price: 1099.99,
     category: 'Tablets',
-    imageUrl: 'https://via.placeholder.com/300x300?text=iPad+Pro',
+    imageUrl: 'https://www.pexels.com/photo/an-ipad-a-pen-and-a-pencil-on-a-green-table-16738220/',
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const productsData = [
     description: 'Ultra-portable Windows laptop',
     price: 999.99,
     category: 'Computers',
-    imageUrl: 'https://via.placeholder.com/300x300?text=Dell+XPS+13',
+    imageUrl: 'https://www.pexels.com/photo/product-shoot-of-sennheiser-hd-201-16688486/',
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const productsData = [
     description: 'Wireless earbuds with active noise cancellation',
     price: 249.99,
     category: 'Audio',
-    imageUrl: 'https://via.placeholder.com/300x300?text=AirPods+Pro',
+    imageUrl: 'https://www.pexels.com/photo/airpods-pro-beside-a-laptop-6857193/',
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ const productsData = [
     description: 'Gaming console with OLED screen',
     price: 349.99,
     category: 'Gaming',
-    imageUrl: 'https://via.placeholder.com/300x300?text=Nintendo+Switch',
+    imageUrl: 'https://www.pexels.com/photo/back-of-nintendo-switch-on-marble-surface-4523030/',
   },
 ];
 
